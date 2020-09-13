@@ -1,7 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_web/screen/seleccionaUbicacionOne.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 class SeleccionScreen extends StatelessWidget {
   final _links = ['https://camellabs.com'];
+
+  final _webViewPlugin = FlutterWebviewPlugin();
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return WebviewScaffold(
+        url: "https://flutter.dev/",
+        withJavascript: true,
+        withZoom: false,
+        hidden: true ,
+        appBar: AppBar(
+            title: Text("Flutter"),
+            elevation: 1
+        ),
+        initialChild: Container(
+          color: Colors.white,
+          child: const Center(
+            child: Text('waiting...'),
+          ),)  );
+  }
+  /*
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,4 +51,5 @@ class SeleccionScreen extends StatelessWidget {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => WebViewContainer(url)));
   }
+  */
 }
