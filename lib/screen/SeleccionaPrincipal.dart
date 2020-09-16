@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_web/screen/seleccionaUbicacionOne.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-class SeleccionScreen extends StatelessWidget {
-  final _links = ['https://camellabs.com'];
+class SeleccionScreen extends StatefulWidget {
+ //final _links = ['https://camellabs.com'];
+  final String lat;
+  final String lng;
 
-  final _webViewPlugin = FlutterWebviewPlugin();
 
 
+    const SeleccionScreen(this.lat, this.lng);
+  @override
+  _MyHomePageState createState() => new _MyHomePageState();
+}
+  class _MyHomePageState extends State<SeleccionScreen> {
+    final _webViewPlugin = FlutterWebviewPlugin();
+  @override
+  Widget build(BuildContext context) {
+      var title = 'Donde envio';
+      return MaterialApp(
+      title: title,
+      home: WebviewScaffold(
+      url: "http://sd-1578096-h00001.ferozo.net/xubicacion/index.html",
+      withZoom: false,
+      withLocalStorage: true,
+      ));
+    }
+  }
+/*
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +45,7 @@ class SeleccionScreen extends StatelessWidget {
             child: Text('waiting...'),
           ),)  );
   }
+  */
   /*
   @override
   Widget build(BuildContext context) {
@@ -52,4 +73,4 @@ class SeleccionScreen extends StatelessWidget {
         MaterialPageRoute(builder: (context) => WebViewContainer(url)));
   }
   */
-}
+//}

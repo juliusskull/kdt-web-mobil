@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_web/models/cadetes.dart';
 import 'package:flutter_app_web/screen/SeleccionaPrincipal.dart';
+import 'package:flutter_app_web/screen/geoLocation.dart';
 //import 'package:flutter_app_web/screen/cadeteOne.dart';
 import 'package:http/http.dart' as http;
 
@@ -48,7 +49,7 @@ Widget  _boton(BuildContext context, String descripcion, String foto ){
 
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  SeleccionScreen()),
+          MaterialPageRoute(builder: (context) =>  GeoListenPage()),
         );
 
       }
