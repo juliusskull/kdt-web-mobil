@@ -10,17 +10,20 @@ class SeleccionScreen extends StatefulWidget {
 
     const SeleccionScreen(this.lat, this.lng);
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageState createState() => new _MyHomePageState(this.lat, this.lng);
 }
   class _MyHomePageState extends State<SeleccionScreen> {
     final _webViewPlugin = FlutterWebviewPlugin();
+    final String lat;
+    final String lng;
+    _MyHomePageState(this.lat, this.lng);
   @override
   Widget build(BuildContext context) {
       var title = 'Donde envio';
       return MaterialApp(
       title: title,
       home: WebviewScaffold(
-      url: "http://sd-1578096-h00001.ferozo.net/xubicacion/index.html",
+      url: "http://sd-1578096-h00001.ferozo.net/xubicacion/index.php?lat="+lat+"&lng="+lng,
       withZoom: false,
       withLocalStorage: true,
       ));
