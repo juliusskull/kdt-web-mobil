@@ -5,7 +5,7 @@ class Productos {
   final String precio;
   final String foto;
   final String fchalta;
-  Productos({this.id,this.idNegocio,this.descripcion,this.precio,this.foto,this.fchalta});
+  Productos( {this.id,this.idNegocio,this.descripcion,this.precio,this.foto,this.fchalta});
 
   factory Productos.fromJson(Map<String, dynamic> json) {
     return Productos(

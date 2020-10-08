@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_web/models/productos.dart';
 import 'package:flutter_app_web/screen/productoOne.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:cached_network_image/cached_network_image.dart';
 const baseUrl = "http://sd-1578096-h00001.ferozo.net:3005/productos";
 class ProductoListScreen extends StatefulWidget {
   @override
@@ -88,7 +88,7 @@ Widget _dinero(String moneda,String compra, String venta) {
 }
 class _MyListScreenState extends State {
   var users = new List<Productos>();
-
+  String imageDefault='https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2010/08/hamburguesa-huevo-960x540.jpg';
   _getUsers() {
     API.getUsers().then((response) {
       setState(() {
@@ -135,7 +135,17 @@ class _MyListScreenState extends State {
                     , subtitle:Text('Precio:\$'+users[index].precio),
 
                   ),
-                  Image.network('https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2010/08/hamburguesa-huevo-960x540.jpg')
+              CachedNetworkImage(
+              placeholder: (context, url) => CircularProgressIndicator(),
+              imageUrl:
+              users[index].foto.replaceAll("images", "imagenes"),
+              )
+              /*
+              FadeInImage.memoryNetwork(
+              placeholder:  "assets/images/loading.gif",
+              image: users[index].foto,
+              ),*/
+    /*),Image.network( (users[index].foto!=null)?users[index].foto.replaceAll("images", "imagenes"): imageDefault,placeholder: (context,url) => CircularProgressIndicator() )*/
                   ,_boton(context,users[index].descripcion,users[index].precio,users[index].foto )
               ])
 

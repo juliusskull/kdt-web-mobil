@@ -47,13 +47,6 @@ class _GeoListenPageState extends State<GeoListenPage> {
                     setState(() {
                       userLocation = value;
 
-                      /*
-                      print("=> entro gps");
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  SeleccionScreen(userLocation.latitude.toString(),userLocation.longitude.toString())),
-                      );
-                    */
                     });
                   });
                 },
@@ -63,7 +56,18 @@ class _GeoListenPageState extends State<GeoListenPage> {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-            ),userLocation == null
+            )
+            ,userLocation != null?RaisedButton(
+              onPressed: () {
+
+              },
+              color: Colors.blue,
+              child: Text(
+                "Enviar Ubicación",
+                style: TextStyle(color: Colors.white),
+              ),
+            ):null
+            ,userLocation == null
              ? CircularProgressIndicator()
              : Expanded( child: WebView(
               initialUrl: 'http://sd-1578096-h00001.ferozo.net/xubicacion/index.php?lat='+ userLocation.latitude.toString() + '&lng='+userLocation.longitude.toString(),

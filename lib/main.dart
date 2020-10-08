@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_web/screen/productoList.dart';
-
+import 'package:flutter_app_web/screen/PhotoPreviewScreen.dart';
+import 'package:flutter_app_web/screen/NavDrawerWidget.dart';
 void main() {
   runApp(MyApp());
 }
@@ -27,10 +28,27 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ProductoListScreen() /*MyHomePage(title: 'Flutter Demo Home Page')*/,
+      home: PrincipalPage()/*PhotoPreviewScreen() MyHomePage(title: 'Flutter Demo Home Page')*/,
     );
   }
 }
+
+
+class PrincipalPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: NavDrawer(),
+      appBar: AppBar(
+        title: Text('KDT'),
+      ),
+      body: Center(
+        child: ProductoListScreen(),
+      ),
+    );
+  }
+}
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -129,7 +147,8 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

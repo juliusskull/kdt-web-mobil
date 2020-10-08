@@ -50,8 +50,8 @@ class _MyHomePageState extends State<ProductoOneSreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               new Image.network(
-                'https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2010/08/hamburguesa-huevo-960x540.jpg',
-                //widget.foto,
+                //'https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2010/08/hamburguesa-huevo-960x540.jpg',
+                widget.foto,
                 fit:BoxFit.fill,
               ),
 
